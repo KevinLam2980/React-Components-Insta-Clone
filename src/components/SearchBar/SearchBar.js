@@ -5,17 +5,26 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faHeart, faCircle, faCompass } from '@fortawesome/free-regular-svg-icons';
 import "./SearchBar.css";
 
+
+
+
 const SearchBar = (props) => {
+  const { search, filterPosts } = props
+  
   return (
     <div className="search-bar-wrapper">
       <div className="social">
         <FontAwesomeIcon icon={faInstagram} />
       </div>
       <form className="search-form">
-        <input
+      <input
           type="text"
           placeholder="Search"
+          onChange={e => 
+            filterPosts(e.target.value)
+           }
         />
+
       </form>
       <div className="social-wrapper">
         <div className="social">
